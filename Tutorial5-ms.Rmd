@@ -5,3 +5,26 @@ date : "`r Sys.Date()`"
 output:
   bookdown::html_document2
 ---
+
+# Introduction
+
+learning rebas git repository
+
+# COVID-19 visualizations
+
+```{r}
+library(tidyverse)
+library(COVID19)
+```
+
+```{r ,cache=TRUE, message=FALSE}
+# Exam situations in USA
+covid_us<- covid19("USA", level = 2)
+```
+```{r}
+#head(covid_us)
+ggplot(covid_us, aes(x = date, y = confirmed)) +
+  geom_line()+
+  facet_wrap(~id)
+```
+
